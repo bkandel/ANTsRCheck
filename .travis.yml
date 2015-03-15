@@ -10,6 +10,7 @@ os:
 before_install:
 - cd ..
 - basedir=${PWD}
+- echo $basedir
 - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
 - chmod 755 ./travis-tool.sh
 - mkdir -p ~/.R
@@ -39,6 +40,8 @@ install:
 - ./travis-tool.sh r_install rmarkdown
 - ./travis-tool.sh r_install magrittr
 - cd ${basedir}
+- pwd
+- ls
 
 script:
 - R CMD build ANTsR --no-build-vignettes
